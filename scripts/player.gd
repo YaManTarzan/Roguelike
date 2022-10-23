@@ -1,6 +1,6 @@
 extends KinematicBody2D
-var vect = Vector2(0,0)
-var up = Vector2(0,-1)
+var velocity:Vector2 = Vector2(0,0)
+var up:Vector2 = Vector2(0,-1)
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -16,24 +16,22 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 		
-	if Input.is_action_pressed('d'):
-		vect.x = 200
+	if Input.is_action_pressed("right"):
+		velocity.x = 200
 		$AnimatedSprite.set_flip_h(false)
-		$AnimatedSprite.offset = Vector2(0,0)
 		$AnimatedSprite.set_animation('walk')
-	elif Input.is_action_pressed('a'):
-		vect.x = -200
+	elif Input.is_action_pressed("left"):
+		velocity.x = -200
 		$AnimatedSprite.set_flip_h(true)
-		$AnimatedSprite.offset = Vector2(5,0)
 		$AnimatedSprite.set_animation('walk')
 	else:
-		vect.x = 0
+		velocity.x = 0
 		$AnimatedSprite.set_animation('idle')
-	if Input.is_action_pressed('w') and is_on_floor() == true:
-		vect.y = -300
+	if Input.is_action_pressed('up') and is_on_floor() == true:
+		velocity.y = -300
 	elif is_on_floor() == false:
-		vect.y += 10
+		velocity.y += 10
 		$AnimatedSprite.set_animation('jump')
 		
-	move_and_slide(vect, up)
+	move_and_slide(velocity, up)
 	
