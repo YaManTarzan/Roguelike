@@ -1,25 +1,24 @@
 extends Control
 onready var itemlist:ItemList = $CanvasLayer/ItemList
-var my_dict:Dictionary = {
-	"KNIFE": {
-	"name": 'Knife',
-	'picture': 'res://assets/items/knife.png'
+var items:Dictionary = {
+	"Knife": {
+	'picture': 'res://assets/items/knife.png',
+	"description": 'A standard knife',
 	},
-	"HELL_KNIFE": {
-	"name": 'Hell Knife',
-	'picture': 'res://assets/items/hell_knife.png'
+	"Hell Knife": {
+	'picture': 'res://assets/items/hell_knife.png',
+	"description": 'The most powerful knife',
 	},
-	"WOODEN_KNIFE": {
-	"name": 'Wooden Knife',
-	"discription": 'A knife made out of wood, not very effective...',
-	'picture': 'res://assets/items/wooden_knife.png'
+	"Wooden Knife": {
+	"description": 'A knife made out of wood, not very effective...',
+	'picture': 'res://assets/items/wooden_knife.png',
 	}
 }
 func _ready():
 	$CanvasLayer.visible = false #<---- I can't do this in editor, so I have to do it via code.
-	additem('KNIFE')
-	additem('WOODEN_KNIFE')
-	additem('HELL_KNIFE')
+	additem('Knife')
+	additem('Wooden Knife')
+	additem('Hell Knife')
 
 
 
@@ -29,7 +28,7 @@ func _process(_delta):
 			$CanvasLayer.visible = true
 		else:
 			$CanvasLayer.visible = false
-
+			$CanvasLayer/ColorRect/RichTextLabel.text = 'Select an item'
 
 func _on_Button_pressed():
 	if itemlist.get_selected_items().size() >= 1:
@@ -37,11 +36,9 @@ func _on_Button_pressed():
 	
 
 func additem(id):
-	if my_dict.has(id) == true:
-		print(my_dict.get(id).name)
-		itemlist.add_item(my_dict.get(id).name, load(my_dict.get(id).picture))
+	if items.has(id) == true:
+		itemlist.add_item(id, load(items.get(id).picture))
 	
 func _on_ItemList_item_selected(index):
-	#print(itemlist.get_item_metadata(index))
-	#$RichTextLabel.text = my_dict.get(index.name).discription
+	$CanvasLayer/ColorRect/RichTextLabel.text = items.get(itemlist.get_item_text(index)).description
 	pass
