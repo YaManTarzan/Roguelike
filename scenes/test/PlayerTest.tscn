@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 393.625, 82 )
@@ -47,5 +47,5 @@ margin_bottom = 198.0
 rect_rotation = 8.26494
 color = Color( 0, 0.0627451, 0.462745, 1 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 264, 308 )
+[node name="player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 175, 311 )
