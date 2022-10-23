@@ -1,7 +1,7 @@
 extends KinematicBody2D
 var velocity:Vector2 = Vector2(0,0)
 var up:Vector2 = Vector2(0,-1)
-
+var Health : float = 100.0
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
