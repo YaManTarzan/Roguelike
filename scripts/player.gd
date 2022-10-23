@@ -4,7 +4,7 @@ var up : Vector2 = Vector2(0,-1)
 var health : float = 100.0
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 		
 	if Input.is_action_pressed("right"):
 		velocity.x = 200
