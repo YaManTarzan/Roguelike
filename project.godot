@@ -11,12 +11,12 @@ config_version=4
 [application]
 
 config/name="rogueLike"
-run/main_scene="res://scenes/inventory.tscn"
+run/main_scene="res://scenes/Inventory.tscn"
 config/icon="res://assets/icon.png"
 
 [autoload]
 
-Inventory="*res://scenes/inventory.tscn"
+Inventory="*res://scenes/Inventory.tscn"
 
 [display]
 
