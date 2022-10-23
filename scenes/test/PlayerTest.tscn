@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 393.625, 82 )
 
-[node name="Node" type="Node"]
+[node name="Node2" type="Node"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 174, 311 )

@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="rogueLike"
-run/main_scene="res://scenes/test/PlayerTest.tscn"
+run/main_scene="res://scenes/inventory.tscn"
 config/icon="res://assets/icon.png"
 
 [autoload]
