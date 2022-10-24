@@ -1,6 +1,6 @@
 extends Control
-onready var itemlist:ItemList = $CanvasLayer/ItemList
-var items:Dictionary = {
+onready var itemlist : ItemList = $CanvasLayer/ItemList
+var items : Dictionary = {
 	"Knife": {
 		'picture': 'res://assets/items/knife.png',
 		"description": 'A standard knife',
@@ -16,10 +16,11 @@ var items:Dictionary = {
 }
 func _ready():
 	$CanvasLayer.visible = false #<---- I can't do this in editor, so I have to do it via code.
-	var count = 0
-	while not count == 3:
-		additem(items.keys()[count])
-		count += 1
+	for key in items:
+		#Loop 1 = Knife
+		#Loop 2 = Hell Knife
+		#Loop 3 = Wooden Knife
+		additem(key)
 
 
 
