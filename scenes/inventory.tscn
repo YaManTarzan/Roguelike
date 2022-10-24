@@ -47,7 +47,7 @@ margin_right = 147.0
 margin_bottom = 83.0
 rect_scale = Vector2( 0.5, 0.5 )
 theme = SubResource( 5 )
-text = "s"
+text = "Select an item"
 scroll_active = false
 
 [node name="ItemList" type="ItemList" parent="CanvasLayer"]
