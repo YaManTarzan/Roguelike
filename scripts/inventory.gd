@@ -33,7 +33,7 @@ func _process(_delta):
 
 func _on_Button_pressed():
 	if itemlist.get_selected_items().size() >= 1:
-		var selectedItems= itemlist.get_selected_items()
+		var selectedItems = itemlist.get_selected_items()
 		itemlist.remove_item(selectedItems[0])
 	
 
