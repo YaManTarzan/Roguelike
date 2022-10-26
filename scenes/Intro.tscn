@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Intro.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Intro.gd" type="Script" id=1]
 [ext_resource path="res://assets/Fonts/Roboto-Medium.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/Fonts/QuartzoBold-W9lv.ttf" type="DynamicFontData" id=3]
 

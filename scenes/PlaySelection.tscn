@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/Fonts/Background.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Back.gd" type="Script" id=3]
 [ext_resource path="res://scripts/PlaySelection.gd" type="Script" id=4]
-[ext_resource path="res://scripts/Custom Mode.gd" type="Script" id=6]
+[ext_resource path="res://scripts/CustomMode.gd" type="Script" id=6]
 [ext_resource path="res://scripts/NewGame.gd" type="Script" id=7]
 [ext_resource path="res://scripts/Achievements.gd" type="Script" id=8]
 
@@ -35,9 +35,9 @@ rect_scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 2 )
 
 [node name="Back" type="Button" parent="."]
-margin_left = 6.0
+margin_left = 8.0
 margin_top = 168.0
-margin_right = 23.0
+margin_right = 25.0
 margin_bottom = 177.0
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 2 )
@@ -51,15 +51,11 @@ script = ExtResource( 3 )
 mouse_entered = Color( 0.054902, 0.427451, 0.690196, 1 )
 mouse_exited = Color( 1, 1, 1, 1 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="NewGame" type="Button" parent="."]
 margin_left = 8.0
-margin_top = 72.0
+margin_top = 65.0
 margin_right = 58.0
-margin_bottom = 112.0
-
-[node name="NewGame" type="Button" parent="VBoxContainer"]
-margin_right = 50.0
-margin_bottom = 9.0
+margin_bottom = 74.0
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
@@ -72,10 +68,11 @@ script = ExtResource( 7 )
 mouse_entered = Color( 0.054902, 0.427451, 0.690196, 1 )
 mouse_exited = Color( 1, 1, 1, 1 )
 
-[node name="Achievements" type="Button" parent="VBoxContainer"]
-margin_top = 13.0
-margin_right = 50.0
-margin_bottom = 22.0
+[node name="Achievements" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 91.0
+margin_right = 58.0
+margin_bottom = 100.0
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
@@ -88,10 +85,11 @@ script = ExtResource( 8 )
 mouse_entered = Color( 0.054902, 0.427451, 0.690196, 1 )
 mouse_exited = Color( 1, 1, 1, 1 )
 
-[node name="CustomMode" type="Button" parent="VBoxContainer"]
-margin_top = 26.0
-margin_right = 50.0
-margin_bottom = 35.0
+[node name="CustomMode" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 104.0
+margin_right = 58.0
+margin_bottom = 113.0
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
@@ -107,9 +105,10 @@ mouse_exited = Color( 1, 1, 1, 1 )
 [connection signal="mouse_entered" from="Back" to="Back" method="_on_Back_mouse_entered"]
 [connection signal="mouse_exited" from="Back" to="Back" method="_on_Back_mouse_exited"]
 [connection signal="pressed" from="Back" to="Back" method="_on_Back_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/NewGame" to="VBoxContainer/NewGame" method="_on_NewGame_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/NewGame" to="VBoxContainer/NewGame" method="_on_NewGame_mouse_exited"]
-[connection signal="mouse_entered" from="VBoxContainer/Achievements" to="VBoxContainer/Achievements" method="_on_Achievements_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/Achievements" to="VBoxContainer/Achievements" method="_on_Achievements_mouse_exited"]
-[connection signal="mouse_entered" from="VBoxContainer/CustomMode" to="VBoxContainer/CustomMode" method="_on_CustomMode_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/CustomMode" to="VBoxContainer/CustomMode" method="_on_CustomMode_mouse_exited"]
+[connection signal="mouse_entered" from="NewGame" to="NewGame" method="_on_NewGame_mouse_entered"]
+[connection signal="mouse_exited" from="NewGame" to="NewGame" method="_on_NewGame_mouse_exited"]
+[connection signal="pressed" from="NewGame" to="NewGame" method="_on_NewGame_pressed"]
+[connection signal="mouse_entered" from="Achievements" to="Achievements" method="_on_Achievements_mouse_entered"]
+[connection signal="mouse_exited" from="Achievements" to="Achievements" method="_on_Achievements_mouse_exited"]
+[connection signal="mouse_entered" from="CustomMode" to="CustomMode" method="_on_CustomMode_mouse_entered"]
+[connection signal="mouse_exited" from="CustomMode" to="CustomMode" method="_on_CustomMode_mouse_exited"]
