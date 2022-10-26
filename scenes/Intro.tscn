@@ -1,0 +1,110 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/Intro.gd" type="Script" id=1]
+[ext_resource path="res://assets/Fonts/Roboto-Medium.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/Fonts/QuartzoBold-W9lv.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="Animation" id=3]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="Environment" id=6]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 0.38
+glow_strength = 0.92
+glow_blend_mode = 1
+
+[node name="Intro" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -32.0
+margin_top = -64.0
+margin_right = 8.0
+margin_bottom = -24.0
+rect_scale = Vector2( 9.65239, 7.12637 )
+color = Color( 0.0470588, 0.0156863, 0.0588235, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeIn = SubResource( 3 )
+anims/FadeOut = SubResource( 5 )
+anims/RESET = SubResource( 4 )
+
+[node name="AGAMRBY" type="Label" parent="."]
+modulate = Color( 1.2, 1.2, 1.2, 1 )
+margin_left = 136.0
+margin_top = 64.0
+margin_right = 176.0
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 1 )
+text = "A GAME BY"
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 1.2, 1.2, 1.2, 1 )
+margin_left = 80.0
+margin_top = 80.0
+margin_right = 225.0
+margin_bottom = 112.0
+custom_fonts/font = SubResource( 2 )
+text = "TEAM-SIX"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_scale = Vector2( 8.36205, 5.07189 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 6 )

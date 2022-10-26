@@ -8,7 +8,8 @@ extents = Vector2( 393.625, 82 )
 [node name="Node2" type="Node"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 174, 311 )
+position = Vector2( 36, 108 )
+scale = Vector2( 0.142581, 0.200189 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 210, 251 )
@@ -48,4 +49,5 @@ rect_rotation = 8.26494
 color = Color( 0, 0.0627451, 0.462745, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 177, 307 )
+position = Vector2( 91, 132 )
+scale = Vector2( 0.3, 0.3 )
