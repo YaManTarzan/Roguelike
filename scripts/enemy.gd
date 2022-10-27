@@ -1,9 +1,9 @@
 extends KinematicBody2D
 class_name Enemy
 
-export var speed := 100.0
+export var speed : float = 100.0
 
-export var gravity : = 3000.0
+export var gravity : float = 3000.0
 
 export var jumpSpeed : float = 1200.0
 
