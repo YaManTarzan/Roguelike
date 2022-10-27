@@ -1,4 +1,4 @@
-extends Node
+extends State
 
 
 # Declare member variables here. Examples:
