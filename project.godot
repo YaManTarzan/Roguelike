@@ -10,17 +10,23 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
-"class": "State",
+"class": "BaseState",
 "language": "GDScript",
-"path": "res://scripts/state.gd"
+"path": "res://scripts/states/BaseState.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://scripts/Enemy.gd"
 }, {
 "base": "Node",
 "class": "StateMachine",
 "language": "GDScript",
-"path": "res://scripts/stateMachine.gd"
+"path": "res://scripts/states/StateMachine.gd"
 } ]
 _global_script_class_icons={
-"State": "",
+"BaseState": "",
+"Enemy": "",
 "StateMachine": ""
 }
 

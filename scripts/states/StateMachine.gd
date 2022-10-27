@@ -10,13 +10,13 @@ signal transitioned(state_name)
 export var initial_state : NodePath = NodePath()
 
 # The current active state. At the start of the game, we get the `initial_state`.
-onready var state: State = get_node(initial_state)
+onready var state: BaseState = get_node(initial_state)
 
 
 func _ready() -> void:
-	# This will wait for children to be ready
+	# This will wait for children node states to be ready
 	yield(owner, "ready")
-	# The state machine assigns itself to the State objects' state_machine property.
+	# The state machine assigns itself to the State objects' state_machine property so they can call transition_to.
 	for child in get_children():
 		child.state_machine = self
 	state.enter()
