@@ -1,6 +1,6 @@
 extends Node
 
-var music = load("res://assets/music.mp3")
+var music = load("res://assets/Music/music.mp3")
 
 func _ready():
 	pass
