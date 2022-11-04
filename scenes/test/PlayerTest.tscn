@@ -1,53 +1,84 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/Bridge.png" type="Texture" id=2]
+[ext_resource path="res://assets/WaterShader/noise.png" type="Texture" id=3]
+[ext_resource path="res://assets/WaterShader/WaterScript.gd" type="Script" id=4]
+[ext_resource path="res://assets/WaterShader/water_mat.tres" type="Material" id=5]
+[ext_resource path="res://assets/light.png" type="Texture" id=6]
+[ext_resource path="res://assets/LightStand.png" type="Texture" id=7]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 393.625, 82 )
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 648, 7 )
+
+[sub_resource type="TileSet" id=4]
+0/name = "Bridge.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
 
 [node name="Node2" type="Node"]
 
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 91, 133 )
+scale = Vector2( 0.3, 0.3 )
+z_index = 2
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 36, 108 )
-scale = Vector2( 0.142581, 0.200189 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 210, 251 )
-shape = SubResource( 1 )
+position = Vector2( 136, 159 )
+shape = SubResource( 5 )
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
-margin_left = -184.0
-margin_top = 168.0
-margin_right = 607.0
-margin_bottom = 338.0
-color = Color( 0, 0.0627451, 0.462745, 1 )
+[node name="TileMap" type="TileMap" parent="."]
+z_index = 5
+tile_set = SubResource( 4 )
+cell_size = Vector2( 16, 6 )
+format = 1
+tile_data = PoolIntArray( 1703904, 0, 0, 1703905, 0, 0, 1703906, 0, 0, 1703907, 0, 0, 1703908, 0, 0, 1703909, 0, 0, 1703910, 0, 0, 1703911, 0, 0, 1703912, 0, 0, 1703913, 0, 0, 1703914, 0, 0, 1703915, 0, 0, 1703916, 0, 0, 1703917, 0, 0, 1703918, 0, 0, 1703919, 0, 0, 1703920, 0, 0, 1703921, 0, 0, 1703922, 0, 0, 1703923, 0, 0, 1703924, 0, 0, 1703925, 0, 0, 1703926, 0, 0, 1703927, 0, 0, 1703928, 0, 0, 1703929, 0, 0, 1703930, 0, 0, 1703931, 0, 0, 1703932, 0, 0, 1703933, 0, 0, 1703934, 0, 0, 1703935, 0, 0, 1638400, 0, 0, 1638401, 0, 0, 1638402, 0, 0, 1638403, 0, 0, 1638404, 0, 0, 1638405, 0, 0, 1638406, 0, 0, 1638407, 0, 0, 1638408, 0, 0, 1638409, 0, 0, 1638410, 0, 0, 1638411, 0, 0, 1638412, 0, 0, 1638413, 0, 0, 1638414, 0, 0, 1638415, 0, 0, 1638416, 0, 0, 1638417, 0, 0, 1638418, 0, 0, 1638419, 0, 0, 1638420, 0, 0, 1638421, 0, 0, 1638422, 0, 0, 1638423, 0, 0, 1638424, 0, 0, 1638425, 0, 0, 1638426, 0, 0, 1638427, 0, 0, 1638428, 0, 0, 1638429, 0, 0, 1638430, 0, 0, 1638431, 0, 0, 1638432, 0, 0, 1638433, 0, 0, 1638434, 0, 0, 1638435, 0, 0, 1638436, 0, 0, 1638437, 0, 0, 1638438, 0, 0, 1638439, 0, 0, 1638440, 0, 0, 1638441, 0, 0, 1638442, 0, 0, 1638443, 0, 0, 1638444, 0, 0, 1638445, 0, 0, 1638446, 0, 0, 1638447, 0, 0, 1638448, 0, 0 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 837.637, 189.878 )
-rotation = -0.200476
-shape = SubResource( 1 )
+[node name="Water" type="Node2D" parent="."]
 
-[node name="ColorRect2" type="ColorRect" parent="StaticBody2D"]
-margin_left = 435.0
-margin_top = 187.0
-margin_right = 1226.0
-margin_bottom = 357.0
-rect_rotation = -11.4864
-color = Color( 0, 0.0627451, 0.462745, 1 )
+[node name="Water" type="Sprite" parent="Water"]
+modulate = Color( 0.129412, 0.658824, 0.160784, 1 )
+material = ExtResource( 5 )
+position = Vector2( -1202, 23 )
+scale = Vector2( 2.52539, 0.220703 )
+z_index = 5
+texture = ExtResource( 3 )
+offset = Vector2( 528.202, 976.425 )
+script = ExtResource( 4 )
+cameraPath = NodePath("../../WaterCamera")
+deb = true
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 1583.98, 166.776 )
-rotation = 0.14425
-shape = SubResource( 1 )
+[node name="LightStand" type="Sprite" parent="."]
+position = Vector2( -95, 146 )
+texture = ExtResource( 7 )
 
-[node name="ColorRect3" type="ColorRect" parent="StaticBody2D"]
-margin_left = 1206.0
-margin_top = 28.0
-margin_right = 1997.0
-margin_bottom = 198.0
-rect_rotation = 8.26494
-color = Color( 0, 0.0627451, 0.462745, 1 )
+[node name="Light" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.294118 )
+position = Vector2( -95, 142 )
+z_index = 111
+texture = ExtResource( 6 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 91, 132 )
-scale = Vector2( 0.3, 0.3 )
+[node name="Light2D" type="Light2D" parent="Light"]
+texture = ExtResource( 6 )
+color = Color( 0.996078, 0.380392, 0, 1 )
+energy = 2.5
+mode = 2
+shadow_enabled = true
+
+[node name="WaterCamera" type="Camera2D" parent="."]
+position = Vector2( 0, 7 )
+smoothing_enabled = true
+smoothing_speed = 11111.0
