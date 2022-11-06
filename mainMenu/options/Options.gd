@@ -12,5 +12,5 @@ func _on_Options_mouse_exited():
 
 
 func _on_Options_pressed():
-	.get_tree().change_scene("res://scenes/Options.tscn")
+	.get_tree().change_scene("res://mainMenu/options/Options.tscn")
 

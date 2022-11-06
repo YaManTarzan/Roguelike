@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://scripts/Intro.gd" type="Script" id=1]
+[ext_resource path="res://mainMenu/intro/Intro.gd" type="Script" id=1]
 [ext_resource path="res://assets/Fonts/Roboto-Medium.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/Fonts/QuartzoBold-W9lv.ttf" type="DynamicFontData" id=3]
 
@@ -50,7 +50,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="DynamicFont" id=1]
-size = 8
+size = 10
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -65,7 +65,11 @@ glow_strength = 0.92
 glow_blend_mode = 1
 
 [node name="Intro" type="Node2D"]
+position = Vector2( 35, 78 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -32.0
@@ -82,29 +86,36 @@ anims/RESET = SubResource( 4 )
 
 [node name="AGAMRBY" type="Label" parent="."]
 modulate = Color( 1.2, 1.2, 1.2, 1 )
-margin_left = 136.0
-margin_top = 64.0
-margin_right = 176.0
-margin_bottom = 74.0
+margin_left = 75.0
+margin_top = 60.0
+margin_right = 238.0
+margin_bottom = 98.0
 custom_fonts/font = SubResource( 1 )
 text = "A GAME BY"
+align = 1
 
 [node name="Label" type="Label" parent="."]
 modulate = Color( 1.2, 1.2, 1.2, 1 )
-margin_left = 80.0
-margin_top = 80.0
-margin_right = 225.0
-margin_bottom = 112.0
+margin_left = 82.0
+margin_top = 79.0
+margin_right = 227.0
+margin_bottom = 111.0
 custom_fonts/font = SubResource( 2 )
 text = "TEAM-SIX"
+align = 1
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-margin_left = -8.0
-margin_top = -8.0
-margin_right = 32.0
-margin_bottom = 32.0
-rect_scale = Vector2( 8.36205, 5.07189 )
+margin_left = -50.0
+margin_top = -63.0
+margin_right = -10.0
+margin_bottom = -23.0
+rect_scale = Vector2( 10.2406, 7.05708 )
 color = Color( 0, 0, 0, 1 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 6 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 160, 79 )
+current = true
+zoom = Vector2( 0.37, 0.465 )

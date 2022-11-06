@@ -11,4 +11,4 @@ func _on_Back_mouse_exited():
 	set_modulate(mouse_exited)
 
 func _on_Back_pressed():
-	.get_tree().change_scene("res://scenes/MainMenu.tscn")
+	.get_tree().change_scene("res://mainMenu/MainMenu.tscn")

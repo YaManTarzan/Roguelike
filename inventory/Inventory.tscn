@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/8-BIT WONDER.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/Pixeled.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://inventory/Inventory.gd" type="Script" id=3]
+[ext_resource path="res://assets/Fonts/QuartzoBold-W9lv.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=4]
+size = 2
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=5]
+default_font = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 9
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 3
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 5
+extra_spacing_top = -8
+extra_spacing_bottom = -8
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+margin_left = 641.0
+margin_top = 83.0
+margin_right = 672.201
+margin_bottom = 98.168
+rect_scale = Vector2( 5.29777, 6.84903 )
+color = Color( 0.129412, 0.121569, 0.145098, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="RichTextLabel" type="Label" parent="CanvasLayer/ColorRect"]
+margin_left = 0.564079
+margin_top = 0.521103
+margin_right = 50.5641
+margin_bottom = 50.5211
+theme = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
+text = "Select an item"
+autowrap = true
+
+[node name="ItemList" type="ItemList" parent="CanvasLayer"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 49.0
+margin_top = -217.0
+margin_right = 235.0
+margin_bottom = -164.0
+rect_scale = Vector2( 3.17313, 2.91241 )
+theme = SubResource( 2 )
+max_columns = 3
+same_column_width = true
+fixed_column_width = 50
+icon_mode = 0
+icon_scale = 0.3
+fixed_icon_size = Vector2( 80, 80 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Button" type="Button" parent="CanvasLayer/ItemList"]
+margin_left = 1.0
+margin_top = 38.0
+margin_right = 33.0
+margin_bottom = 50.0
+custom_fonts/font = SubResource( 1 )
+text = "DROP"
+flat = true
+
+[connection signal="item_selected" from="CanvasLayer/ItemList" to="." method="_on_ItemList_item_selected"]
+[connection signal="pressed" from="CanvasLayer/ItemList/Button" to="." method="_on_Button_pressed"]
