@@ -1,16 +1,16 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://assets/Fonts/Beholden-Bold.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/Fonts/Background.png" type="Texture" id=2]
-[ext_resource path="res://scripts/Back.gd" type="Script" id=3]
-[ext_resource path="res://scripts/PlaySelection.gd" type="Script" id=4]
-[ext_resource path="res://scripts/CustomMode.gd" type="Script" id=6]
-[ext_resource path="res://scripts/NewGame.gd" type="Script" id=7]
-[ext_resource path="res://scripts/Achievements.gd" type="Script" id=8]
+[ext_resource path="res://mainMenu/CustomMode.gd" type="Script" id=1]
+[ext_resource path="res://mainMenu/play/NewGame.gd" type="Script" id=2]
+[ext_resource path="res://mainMenu/achievements/Achievements.gd" type="Script" id=3]
+[ext_resource path="res://mainMenu/play/Back.gd" type="Script" id=4]
+[ext_resource path="res://mainMenu/play/PlaySelection.gd" type="Script" id=5]
+[ext_resource path="res://assets/Fonts/Background.png" type="Texture" id=6]
+[ext_resource path="res://assets/Fonts/Beholden-Bold.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="DynamicFont" id=1]
-size = 8
-font_data = ExtResource( 1 )
+size = 29
+font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
@@ -26,19 +26,22 @@ font_data = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 43, 22 )
-script = ExtResource( 4 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_right = 1280.0
 margin_bottom = 720.0
-rect_scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 2 )
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
 
 [node name="Back" type="Button" parent="."]
 margin_left = 8.0
-margin_top = 168.0
-margin_right = 25.0
-margin_bottom = 177.0
+margin_top = 291.0
+margin_right = 67.0
+margin_bottom = 321.0
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
@@ -47,15 +50,15 @@ custom_styles/disabled = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
 text = "Back"
 align = 0
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 mouse_entered = Color( 0.054902, 0.427451, 0.690196, 1 )
 mouse_exited = Color( 1, 1, 1, 1 )
 
 [node name="NewGame" type="Button" parent="."]
 margin_left = 8.0
-margin_top = 65.0
-margin_right = 58.0
-margin_bottom = 74.0
+margin_top = 140.0
+margin_right = 140.0
+margin_bottom = 170.0
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
@@ -64,15 +67,15 @@ custom_styles/disabled = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
 text = "New Game"
 align = 0
-script = ExtResource( 7 )
+script = ExtResource( 2 )
 mouse_entered = Color( 0.054902, 0.427451, 0.690196, 1 )
 mouse_exited = Color( 1, 1, 1, 1 )
 
 [node name="Achievements" type="Button" parent="."]
 margin_left = 8.0
-margin_top = 91.0
-margin_right = 58.0
-margin_bottom = 100.0
+margin_top = 180.0
+margin_right = 186.0
+margin_bottom = 210.0
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
@@ -81,15 +84,15 @@ custom_styles/disabled = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
 text = "Achievements"
 align = 0
-script = ExtResource( 8 )
+script = ExtResource( 3 )
 mouse_entered = Color( 0.054902, 0.427451, 0.690196, 1 )
 mouse_exited = Color( 1, 1, 1, 1 )
 
 [node name="CustomMode" type="Button" parent="."]
 margin_left = 8.0
-margin_top = 104.0
-margin_right = 58.0
-margin_bottom = 113.0
+margin_top = 219.0
+margin_right = 178.0
+margin_bottom = 249.0
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
@@ -98,9 +101,14 @@ custom_styles/disabled = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
 text = "Custom Mode"
 align = 0
-script = ExtResource( 6 )
+script = ExtResource( 1 )
 mouse_entered = Color( 0.054902, 0.427451, 0.690196, 1 )
 mouse_exited = Color( 1, 1, 1, 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 321, 180 )
+current = true
+zoom = Vector2( 0.623, 0.596 )
 
 [connection signal="mouse_entered" from="Back" to="Back" method="_on_Back_mouse_entered"]
 [connection signal="mouse_exited" from="Back" to="Back" method="_on_Back_mouse_exited"]

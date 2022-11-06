@@ -1,17 +1,17 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://assets/Fonts/Background.png" type="Texture" id=1]
-[ext_resource path="res://assets/Fonts/Beholden-Bold.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://scripts/Play.gd" type="Script" id=3]
-[ext_resource path="res://scripts/Options.gd" type="Script" id=4]
-[ext_resource path="res://scripts/QuitGame.gd" type="Script" id=5]
-[ext_resource path="res://scripts/PatchNotes.gd" type="Script" id=6]
-[ext_resource path="res://scripts/MainMenuFade.gd" type="Script" id=7]
+[ext_resource path="res://mainMenu/options/Options.gd" type="Script" id=1]
+[ext_resource path="res://mainMenu/QuitGame.gd" type="Script" id=2]
+[ext_resource path="res://mainMenu/patchNotes/PatchNotes.gd" type="Script" id=3]
+[ext_resource path="res://mainMenu/MainMenuFade.gd" type="Script" id=4]
+[ext_resource path="res://mainMenu/play/Play.gd" type="Script" id=5]
+[ext_resource path="res://assets/Fonts/Background.png" type="Texture" id=6]
+[ext_resource path="res://assets/Fonts/Beholden-Bold.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="DynamicFont" id=1]
-size = 8
+size = 28
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 2 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxEmpty" id=3]
 
@@ -56,18 +56,24 @@ tracks/0/keys = {
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 7 )
+margin_left = -3.0
+margin_right = -3.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_right = 1280.0
 margin_bottom = 720.0
-rect_scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 1 )
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
 
 [node name="Play" type="Button" parent="."]
-margin_left = 8.0
-margin_top = 64.0
-margin_bottom = 73.0
+margin_left = 11.981
+margin_top = 126.052
+margin_right = 65.981
+margin_bottom = 166.052
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 4 )
@@ -76,14 +82,15 @@ custom_styles/disabled = SubResource( 5 )
 custom_styles/normal = SubResource( 2 )
 text = "Play"
 align = 0
-script = ExtResource( 3 )
+script = ExtResource( 5 )
 mouse_entered = Color( 0.054902, 0.427451, 0.690196, 1 )
 mouse_exited = Color( 1, 1, 1, 1 )
 
 [node name="Options" type="Button" parent="."]
-margin_left = 8.0
-margin_top = 77.0
-margin_bottom = 86.0
+margin_left = 11.0
+margin_top = 161.0
+margin_right = 109.0
+margin_bottom = 190.0
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 4 )
@@ -92,14 +99,15 @@ custom_styles/disabled = SubResource( 5 )
 custom_styles/normal = SubResource( 2 )
 text = "Options"
 align = 0
-script = ExtResource( 4 )
+script = ExtResource( 1 )
 mouse_entered = Color( 0.054902, 0.427451, 0.690196, 1 )
 mouse_exited = Color( 1, 1, 1, 1 )
 
 [node name="PatchNotes" type="Button" parent="."]
-margin_left = 8.0
-margin_top = 90.0
-margin_bottom = 99.0
+margin_left = 12.0
+margin_top = 190.0
+margin_right = 159.0
+margin_bottom = 219.0
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 4 )
@@ -108,14 +116,15 @@ custom_styles/disabled = SubResource( 5 )
 custom_styles/normal = SubResource( 2 )
 text = "Patch Notes"
 align = 0
-script = ExtResource( 6 )
+script = ExtResource( 3 )
 mouse_entered = Color( 0.054902, 0.427451, 0.690196, 1 )
 mouse_exited = Color( 1, 1, 1, 1 )
 
 [node name="QuitGame" type="Button" parent="."]
-margin_left = 8.0
-margin_top = 103.0
-margin_bottom = 112.0
+margin_left = 12.0
+margin_top = 219.0
+margin_right = 140.0
+margin_bottom = 248.0
 custom_fonts/font = SubResource( 1 )
 custom_styles/hover = SubResource( 3 )
 custom_styles/pressed = SubResource( 4 )
@@ -124,21 +133,26 @@ custom_styles/disabled = SubResource( 5 )
 custom_styles/normal = SubResource( 2 )
 text = "Quit Game"
 align = 0
-script = ExtResource( 5 )
+script = ExtResource( 2 )
 mouse_entered = Color( 0.054902, 0.427451, 0.690196, 1 )
 mouse_exited = Color( 1, 1, 1, 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -4.0
-margin_top = -4.0
-margin_right = 36.0
-margin_bottom = 36.0
-rect_scale = Vector2( 8.24254, 4.72458 )
+margin_left = 3.0
+margin_top = 5.0
+margin_right = 43.0
+margin_bottom = 45.0
+rect_scale = Vector2( 15.937, 8.901 )
 color = Color( 0, 0, 0, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/FadeOut = SubResource( 7 )
 anims/RESET = SubResource( 8 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 320, 181 )
+current = true
+zoom = Vector2( 0.619, 0.58 )
 
 [connection signal="mouse_entered" from="Play" to="Play" method="_on_Play_mouse_entered"]
 [connection signal="mouse_exited" from="Play" to="Play" method="_on_Play_mouse_exited"]
