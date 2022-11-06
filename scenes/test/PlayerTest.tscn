@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/LightStand.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 648, 7 )
+extents = Vector2( 648, 6.5 )
 
 [sub_resource type="TileSet" id=4]
 0/name = "Bridge.png 0"
@@ -30,14 +30,14 @@ extents = Vector2( 648, 7 )
 [node name="Node2" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 91, 133 )
+position = Vector2( 66, 135 )
 scale = Vector2( 0.3, 0.3 )
 z_index = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 136, 159 )
+position = Vector2( 136, 159.5 )
 shape = SubResource( 5 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -50,7 +50,7 @@ tile_data = PoolIntArray( 1703904, 0, 0, 1703905, 0, 0, 1703906, 0, 0, 1703907, 
 [node name="Water" type="Node2D" parent="."]
 
 [node name="Water" type="Sprite" parent="Water"]
-modulate = Color( 0.129412, 0.658824, 0.160784, 1 )
+modulate = Color( 0.596078, 0.815686, 0.137255, 1 )
 material = ExtResource( 5 )
 position = Vector2( -1202, 23 )
 scale = Vector2( 2.52539, 0.220703 )
@@ -79,6 +79,5 @@ mode = 2
 shadow_enabled = true
 
 [node name="WaterCamera" type="Camera2D" parent="."]
-position = Vector2( 0, 7 )
 smoothing_enabled = true
 smoothing_speed = 11111.0

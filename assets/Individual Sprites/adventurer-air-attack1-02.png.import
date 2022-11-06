@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WaterParticle.png-beb6ee4aed42d0f6b4fc9eaf16332ffe.stex"
+path="res://.import/adventurer-air-attack1-02.png-d8e2b0dc0cb2e9e61979d918b5cea3e5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/WaterParticle.png"
-dest_files=[ "res://.import/WaterParticle.png-beb6ee4aed42d0f6b4fc9eaf16332ffe.stex" ]
+source_file="res://assets/Individual Sprites/adventurer-air-attack1-02.png"
+dest_files=[ "res://.import/adventurer-air-attack1-02.png-d8e2b0dc0cb2e9e61979d918b5cea3e5.stex" ]
 
 [params]
 

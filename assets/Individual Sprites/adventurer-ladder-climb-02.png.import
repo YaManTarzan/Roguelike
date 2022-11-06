@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/download.jpg-cdfd3ae589be437b73d5b10dd72f4ed2.stex"
+path="res://.import/adventurer-ladder-climb-02.png-c79124985a63de5ab69c785861acfcc8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/download.jpg"
-dest_files=[ "res://.import/download.jpg-cdfd3ae589be437b73d5b10dd72f4ed2.stex" ]
+source_file="res://assets/Individual Sprites/adventurer-ladder-climb-02.png"
+dest_files=[ "res://.import/adventurer-ladder-climb-02.png-c79124985a63de5ab69c785861acfcc8.stex" ]
 
 [params]
 
