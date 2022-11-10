@@ -49,5 +49,5 @@ rect_rotation = 8.26494
 color = Color( 0, 0.0627451, 0.462745, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 91, 132 )
+position = Vector2( 93, 132 )
 scale = Vector2( 0.3, 0.3 )
