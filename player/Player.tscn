@@ -19,7 +19,7 @@
 [ext_resource path="res://assets/Individual Sprites/adventurer-idle-03.png" type="Texture" id=17]
 
 [sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 9, 37.5 )
+extents = Vector2( 21.5, 37.5 )
 
 [sub_resource type="SpriteFrames" id=14]
 animations = [ {
@@ -41,6 +41,9 @@ animations = [ {
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Player" type="Sprite" parent="."]
 visible = false
@@ -51,7 +54,7 @@ vframes = 5
 frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -9, 5.5 )
+position = Vector2( 3.5, 5.5 )
 shape = SubResource( 13 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

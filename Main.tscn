@@ -1,64 +1,26 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 519.25, 82 )
-
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 393.625, 82 )
+extents = Vector2( 253.5, 34.5 )
 
-[node name="Node" type="Node"]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 174, 311 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 82, 251 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 210, 251 )
-shape = SubResource( 2 )
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
-margin_left = -184.0
-margin_top = 168.0
-margin_right = 607.0
-margin_bottom = 338.0
-color = Color( 0, 0.0627451, 0.462745, 1 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 837.637, 189.878 )
-rotation = -0.200476
-shape = SubResource( 2 )
-
-[node name="ColorRect2" type="ColorRect" parent="StaticBody2D"]
-margin_left = 435.0
-margin_top = 187.0
-margin_right = 1226.0
-margin_bottom = 357.0
-rect_rotation = -11.4864
-color = Color( 0, 0.0627451, 0.462745, 1 )
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 1585, 168 )
-rotation = 0.14425
-shape = SubResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="ColorRect3" type="ColorRect" parent="StaticBody2D"]
-margin_left = 1206.0
-margin_top = 28.0
-margin_right = 1997.0
-margin_bottom = 198.0
-rect_rotation = 8.26494
-color = Color( 0, 0.0627451, 0.462745, 1 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Node" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 180, 300 )
+position = Vector2( 108, -48 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -6.5
+margin_top = -8.5
+margin_right = 493.5
+margin_bottom = 56.5
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ColorRect"]
+position = Vector2( 250, 33 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/StaticBody2D"]
+shape = SubResource( 2 )
