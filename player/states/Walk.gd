@@ -1,18 +1,20 @@
 extends 'State.gd'
 
-export var walkSpeed = 150
-export var jumpStrength = 150
-
-func _ready():
-	pass 
-	
 func physics_update(_delta: float):
-		if player.is_on_floor():
-			if Input.is_action_pressed("right"):
-				player.velocity.x = -walkSpeed
-			if Input.is_action_pressed("left"):
-				player.velocity.x = walkSpeed
-			player.velocity.y += player.gravity * _delta
-			player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
-		if Input.is_action_pressed("up"):
-			state_machine.transition_to('Air')
+	if not player.is_on_floor():
+		state_machine.transition_to("Air")
+		return
+
+	var input_direction_x: float = (
+		Input.get_action_strength("right")
+		- Input.get_action_strength("left")
+	)
+	player.velocity.x = player.speed * input_direction_x
+	player.velocity.y += player.gravity * _delta
+	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
+
+	if Input.is_action_just_pressed("up"):
+		state_machine.transition_to("Air", {do_jump = true})
+	elif is_equal_approx(input_direction_x, 0.0):
+		state_machine.transition_to("Idle")
+
