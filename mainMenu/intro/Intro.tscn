@@ -50,11 +50,11 @@ tracks/0/keys = {
 }
 
 [sub_resource type="DynamicFont" id=1]
-size = 10
+size = 40
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 32
+size = 236
 font_data = ExtResource( 3 )
 
 [sub_resource type="Environment" id=6]
@@ -65,17 +65,17 @@ glow_strength = 0.92
 glow_blend_mode = 1
 
 [node name="Intro" type="Node2D"]
-position = Vector2( 35, 78 )
+position = Vector2( 54, 65 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -32.0
-margin_top = -64.0
-margin_right = 8.0
-margin_bottom = -24.0
+margin_left = -53.0
+margin_top = -67.0
+margin_right = 147.0
+margin_bottom = 88.0
 rect_scale = Vector2( 9.65239, 7.12637 )
 color = Color( 0.0470588, 0.0156863, 0.0588235, 1 )
 
@@ -86,36 +86,35 @@ anims/RESET = SubResource( 4 )
 
 [node name="AGAMRBY" type="Label" parent="."]
 modulate = Color( 1.2, 1.2, 1.2, 1 )
-margin_left = 75.0
-margin_top = 60.0
-margin_right = 238.0
-margin_bottom = 98.0
+margin_left = 858.0
+margin_top = 324.0
+margin_right = 1061.0
+margin_bottom = 372.0
 custom_fonts/font = SubResource( 1 )
 text = "A GAME BY"
 align = 1
 
 [node name="Label" type="Label" parent="."]
 modulate = Color( 1.2, 1.2, 1.2, 1 )
-margin_left = 82.0
-margin_top = 79.0
-margin_right = 227.0
-margin_bottom = 111.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 320.0
+margin_top = 383.0
+margin_right = 1536.0
+margin_bottom = 619.0
 custom_fonts/font = SubResource( 2 )
-text = "TEAM-SIX"
+text = "TEAM-BYTE"
 align = 1
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 margin_left = -50.0
 margin_top = -63.0
-margin_right = -10.0
-margin_bottom = -23.0
+margin_right = 138.0
+margin_bottom = 91.0
 rect_scale = Vector2( 10.2406, 7.05708 )
 color = Color( 0, 0, 0, 1 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 6 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 160, 79 )
-current = true
-zoom = Vector2( 0.37, 0.465 )
