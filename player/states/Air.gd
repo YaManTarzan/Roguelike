@@ -20,8 +20,7 @@ export var jumpStrength = 150
 # v0 = 2*h/t(h) in y direction
 # g = (-2*h) / t(h)^2
 
-# Now we need to define the horizontal movement in that x direction, the above only corresponds to the y direction component so far and how high the jump goes
-# So now we introduce horizontal velocity and how it affects the distance of the jump,
+# Now if I wanted to do define intial jump velocity and gravity based on the velocity in x direction and how far I will jump, I can do substitution.
 # To get t(h) based on the velocity in the x direction, we can do t(h) = x(h) / v(x), utilizing the distance over time formula.
 # We can substitute t(h) into the equations above which gets us equations of how high and far we can jump based on initial velocity and gravity now:
 # v0 = 2*h*v(x)/t(h)
@@ -30,16 +29,18 @@ export var jumpStrength = 150
 # We will be using velocity verlet integration over euler integration because euler integration(method) can become inaccurate if the time it took to change from one frame to the next is fairly large.
 # Velocity verlet will: previous velocity + previous velocity + (gravity*timeStep) 
 
+
 func enter(msg:={}):
 	if msg.has("do_jump"):
-		player.velocity.y = -1200
+		player.velocity.y = player.jumpVelocity
 	
 func physics_update(_delta: float):
 	if Input.is_action_pressed("right"):
 		player.velocity.x = walkSpeed * 2
 	elif Input.is_action_pressed("left"):
 		player.velocity.x = -walkSpeed * 2
-	player.velocity.y += player.gravity * _delta
+	print("TEST",player.getGravity())
+	player.velocity.y += player.getGravity() * _delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
 	if player.is_on_floor():
 		if is_equal_approx(player.velocity.x,0.0):
