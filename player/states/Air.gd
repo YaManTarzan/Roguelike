@@ -32,7 +32,13 @@ export var jumpStrength = 150
 # https://www.algorithm-archive.org/contents/verlet_integration/verlet_integration.html
 # https://www.youtube.com/watch?v=AZ8IGOHsjBk
 # which ends up being simplified down to this form for numerical integration: 2*x(t) - x(t-deltaT) + a(t)deltaT^2
-# In code this tranlastes to: position = 2*position -previousPosition + acceleration * changeInTime ^2 
+# In code this tranlastes to: position = 2*position -previousPosition + acceleration * changeInTime ^2
+# However this only allows us to use position and acceleration, what if we wanted to calculate in terms of velocity?
+# We can use velocity verlet which utilizes the kinematic equations
+# since the acceleration is static, then the Velocity Verlet algorithm will produce the same results as the Euler algorithm,
+# since the factor of 0.5 cancels out the difference in the acceleration term.
+# However, the Velocity Verlet algorithm will still be symplectic,
+# meaning that it will preserve the energy of the system. And hence why finalVelocity is  v = v0 *accel * dt
 
 
 func enter(msg:={}):
@@ -41,16 +47,15 @@ func enter(msg:={}):
 	
 func physics_update(_delta: float):
 	if Input.is_action_pressed("right"):
-		player.velocity.x = walkSpeed * 2
+		player.velocity.x = walkSpeed * 1.5
 	elif Input.is_action_pressed("left"):
-		player.velocity.x = -walkSpeed * 2
+		player.velocity.x = -walkSpeed * 1.5
+	elif Input.is_action_pressed("down"):
+		player.velocity.y = -player.jumpVelocity
 	var initialVelocity = player.velocity.y
-	var initialPosition = player.position.y
 
 	var finalVelocity = initialVelocity + player.getGravity() * _delta # final velocity using Verlet
-	var finalPosition = initialPosition + (finalVelocity) * (_delta*_delta) / 2 # final position using Verlet
 	player.velocity.y = finalVelocity # update velocity
-	player.position.y = finalPosition # update position
 	player.move_and_slide(player.velocity, Vector2.UP) # apply movement
 
 	if player.is_on_floor():
