@@ -46,12 +46,13 @@ func enter(msg:={}):
 		player.velocity.y = player.jumpVelocity
 	
 func physics_update(_delta: float):
-	if Input.is_action_pressed("right"):
-		player.velocity.x = walkSpeed * 1.5
-	elif Input.is_action_pressed("left"):
-		player.velocity.x = -walkSpeed * 1.5
-	elif Input.is_action_pressed("down"):
+	var direction = Input.get_action_strength("right") - Input.get_action_strength("left")
+	player.velocity.x = direction * walkSpeed * 1.5
+	if Input.is_action_pressed("down"):
 		player.velocity.y = -player.jumpVelocity
+	if Input.is_action_just_released("up") && player.velocity.y < -300:
+		player.velocity.y = -300
+
 	var initialVelocity = player.velocity.y
 
 	var finalVelocity = initialVelocity + player.getGravity() * _delta # final velocity using Verlet
